@@ -1,19 +1,23 @@
-export default class User {
+import {Schema, model} from "mongoose";
 
-    username: String;
-    name: String;
-    email: String;
+const UserSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+      },
+      email: {
+        type: String,
+        required: true
+      },
+      password: {
+        type: String,
+        required: true
+      },
+      date: {
+        type: Date,
+        default: Date.now
+      }
+})
 
-    constructor(name: String, username: String, email: String) {
-        this.name = name;
-        this.username = username;
-        this.email = email;
-    }
+export const User = model('User', UserSchema)
 
-    getUsername() {
-        return this.username;
-    }
-    getName() {
-        return this.name;
-    }
-}

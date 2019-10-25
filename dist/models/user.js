@@ -1,17 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var User = /** @class */ (function () {
-    function User(name, username, email) {
-        this.name = name;
-        this.username = username;
-        this.email = email;
+var mongoose_1 = require("mongoose");
+var UserSchema = new mongoose_1.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now
     }
-    User.prototype.getUsername = function () {
-        return this.username;
-    };
-    User.prototype.getName = function () {
-        return this.name;
-    };
-    return User;
-}());
-exports.default = User;
+});
+exports.User = mongoose_1.model('User', UserSchema);

@@ -36,6 +36,7 @@ app.get('//user/:id', userController.getOneUser);
 app.put('//user/:id', userController.updateUser);
 app.delete('//user/:id', userController.deleteUser);
 app.post('//user', userController.createUser);
+app.get('//obj', homeController.getObjectKeys);
 app.listen(PORT, function () {
     console.log("API isten on " + PORT);
 });
